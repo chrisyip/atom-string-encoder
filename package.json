@@ -1,0 +1,21 @@
+{
+  "name": "string-encoder",
+  "main": "./lib/string-encoder",
+  "version": "0.0.0",
+  "description": "Converts string from one encoding to another.",
+  "keywords": ["base64", "md5", "sha256", "sha512", "encode", "decode", "uri", "entities"],
+  "activationCommands": [],
+  "repository": "https://github.com/chrisyip/atom-string-encoder.git",
+  "author": {
+    "name": "Chris Yip",
+    "email": "chris@yesui.co",
+    "url": "https://github.com/chrisyip"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "html-entities": "^1.2.0"
+  }
+}
