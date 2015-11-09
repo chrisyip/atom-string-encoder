@@ -1,9 +1,18 @@
 {
   "name": "string-encoder",
   "main": "./lib/string-encoder",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Converts string from one encoding to another.",
-  "keywords": ["base64", "md5", "sha256", "sha512", "encode", "decode", "uri", "entities"],
+  "keywords": [
+    "base64",
+    "md5",
+    "sha256",
+    "sha512",
+    "encode",
+    "decode",
+    "uri",
+    "entities"
+  ],
   "activationCommands": [],
   "repository": "https://github.com/chrisyip/atom-string-encoder.git",
   "author": {
