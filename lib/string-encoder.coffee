@@ -24,7 +24,6 @@ cryptoHash = (type) ->
 
   insertText(editor, crypto.createHash(type).update(text).digest('hex'), selected) if editor and text
 
-
 base64 = (decode) ->
   [editor, text, selected] = getText()
 
@@ -44,10 +43,6 @@ entities = (decode) ->
     insertText(editor, Entities.decode(text), selected)
   else
     insertText(editor, Entities.encode(text), selected)
-
-md5 = -> cryptoHash('md5')
-sha256 = -> cryptoHash('sha256')
-sha512 = -> cryptoHash('sha512')
 
 uri = (decode) ->
   [editor, text, selected] = getText()
@@ -70,9 +65,9 @@ module.exports = StringEncoder =
       'string-encoder:base64-encode': -> base64()
       'string-encoder:html-entities-decode': -> entities(true)
       'string-encoder:html-entities-encode': -> entities()
-      'string-encoder:md5-encode': md5
-      'string-encoder:sha256-encode': sha256
-      'string-encoder:sha512-encode': sha512
+      'string-encoder:md5': -> cryptoHash('md5')
+      'string-encoder:sha256': -> cryptoHash('sha256')
+      'string-encoder:sha512': -> cryptoHash('sha512')
       'string-encoder:uri-decode': -> uri(true)
       'string-encoder:uri-encode': -> uri()
 
