@@ -4,6 +4,30 @@
     label: 'String Encoder'
     submenu: [
       {
+        label: 'Base64 - Encide'
+        command: 'string-encoder:base64-encode'
+      }
+      {
+        label: 'Base64 - Decide'
+        command: 'string-encoder:base64-decode'
+      }
+      {
+        label: 'HTML Entities - Encide'
+        command: 'string-encoder:html-entities-encode'
+      }
+      {
+        label: 'HTML Entities - Decide'
+        command: 'string-encoder:html-entities-decode'
+      }
+      {
+        label: 'URI - Encide'
+        command: 'string-encoder:uri-encode'
+      }
+      {
+        label: 'URI - Decide'
+        command: 'string-encoder:uri-decode'
+      }
+      {
         label: 'MD5'
         command: 'string-encoder:md5'
       }
@@ -25,6 +49,30 @@ menu: [
     submenu: [
       label: 'String Encoder'
       submenu: [
+        {
+          label: 'Base64 - Encide'
+          command: 'string-encoder:base64-encode'
+        }
+        {
+          label: 'Base64 - Decide'
+          command: 'string-encoder:base64-decode'
+        }
+        {
+          label: 'HTML Entities - Encide'
+          command: 'string-encoder:html-entities-encode'
+        }
+        {
+          label: 'HTML Entities - Decide'
+          command: 'string-encoder:html-entities-decode'
+        }
+        {
+          label: 'URI - Encide'
+          command: 'string-encoder:uri-encode'
+        }
+        {
+          label: 'URI - Decide'
+          command: 'string-encoder:uri-decode'
+        }
         {
           label: 'MD5'
           command: 'string-encoder:md5'
