@@ -8,18 +8,18 @@ Converts string from one encoding to another.
 
 * Base64 (with decoder)
 * HTML Entities (with decoder)
+* URI component (with decoder)
 * MD5
 * SHA256 / 512
-* URI component (with decoder)
 
 # Commands
 
-* `string-encoder:base64-decode`
 * `string-encoder:base64-encode`
-* `string-encoder:html-entities-decode`
+* `string-encoder:base64-decode`
 * `string-encoder:html-entities-encode`
-* `string-encoder:uri-decode`
+* `string-encoder:html-entities-decode`
 * `string-encoder:uri-encode`
+* `string-encoder:uri-decode`
 * `string-encoder:md5`
 * `string-encoder:sha256`
 * `string-encoder:sha512`
