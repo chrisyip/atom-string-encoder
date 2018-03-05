@@ -4,27 +4,27 @@
     label: 'String Encoder'
     submenu: [
       {
-        label: 'Base64 - Encide'
+        label: 'Base64 - Encode'
         command: 'string-encoder:base64-encode'
       }
       {
-        label: 'Base64 - Decide'
+        label: 'Base64 - Decode'
         command: 'string-encoder:base64-decode'
       }
       {
-        label: 'HTML Entities - Encide'
+        label: 'HTML Entities - Encode'
         command: 'string-encoder:html-entities-encode'
       }
       {
-        label: 'HTML Entities - Decide'
+        label: 'HTML Entities - Decode'
         command: 'string-encoder:html-entities-decode'
       }
       {
-        label: 'URI - Encide'
+        label: 'URI - Encode'
         command: 'string-encoder:uri-encode'
       }
       {
-        label: 'URI - Decide'
+        label: 'URI - Decode'
         command: 'string-encoder:uri-decode'
       }
       {
@@ -50,27 +50,27 @@ menu: [
       label: 'String Encoder'
       submenu: [
         {
-          label: 'Base64 - Encide'
+          label: 'Base64 - Encoder'
           command: 'string-encoder:base64-encode'
         }
         {
-          label: 'Base64 - Decide'
+          label: 'Base64 - Decode'
           command: 'string-encoder:base64-decode'
         }
         {
-          label: 'HTML Entities - Encide'
+          label: 'HTML Entities - Encoder'
           command: 'string-encoder:html-entities-encode'
         }
         {
-          label: 'HTML Entities - Decide'
+          label: 'HTML Entities - Decode'
           command: 'string-encoder:html-entities-decode'
         }
         {
-          label: 'URI - Encide'
+          label: 'URI - Encoder'
           command: 'string-encoder:uri-encode'
         }
         {
-          label: 'URI - Decide'
+          label: 'URI - Decode'
           command: 'string-encoder:uri-decode'
         }
         {
