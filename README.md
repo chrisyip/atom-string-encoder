@@ -18,8 +18,8 @@ Converts string from one encoding to another.
 * `string-encoder:base64-encode`
 * `string-encoder:html-entities-decode`
 * `string-encoder:html-entities-encode`
-* `string-encoder:md5-encode`
-* `string-encoder:sha256-encode`
-* `string-encoder:sha512-encode`
 * `string-encoder:uri-decode`
 * `string-encoder:uri-encode`
+* `string-encoder:md5`
+* `string-encoder:sha256`
+* `string-encoder:sha512`
