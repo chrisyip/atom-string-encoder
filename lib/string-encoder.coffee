@@ -3,61 +3,32 @@
 crypto = require 'crypto'
 Entities = new (require('html-entities').AllHtmlEntities)
 
-getText = ->
-  if editor = atom.workspace.getActiveTextEditor()
-    selection = editor.getSelectedText()
-    unless selection
-      selection = editor.getText() unless selection
-    else
-      selected = true
+cryptoHash =
+  hash: (algorithm, data) ->
+    crypto.createHash(algorithm).update(data).digest('hex')
+  MD5: (text) ->
+    cryptoHash.hash('md5', text)
+  SHA256: (text) ->
+    cryptoHash.hash('sha256', text)
+  SHA512: (text) ->
+    cryptoHash.hash('sha512', text)
 
-    [editor, selection, selected]
+base64 =
+  encode: (text) ->
+    new Buffer(text).toString('base64')
+  decode: (text) ->
+    new Buffer(text, 'base64').toString()
 
-insertText = (editor, text, selected) ->
-  if selected
-    editor.insertText(text)
+transfrom = (converter) ->
+  return unless editor = atom.workspace.getActiveTextEditor()
+
+  selections = editor.getSelections()
+  # Selected or not
+  if selections[0].isEmpty()
+    editor.setText(converter(editor.getText()))
   else
-    editor.setText(text)
-
-cryptoHash = (type) ->
-  [editor, text, selected] = getText()
-
-  insertText(editor, crypto.createHash(type).update(text).digest('hex'), selected) if editor and text
-
-
-base64 = (decode) ->
-  [editor, text, selected] = getText()
-
-  return unless editor and text
-
-  if decode
-    insertText(editor, new Buffer(text, 'base64').toString(), selected)
-  else
-    insertText(editor, new Buffer(text).toString('base64'), selected)
-
-entities = (decode) ->
-  [editor, text, selected] = getText()
-
-  return unless editor and text
-
-  if decode
-    insertText(editor, Entities.decode(text), selected)
-  else
-    insertText(editor, Entities.encode(text), selected)
-
-md5 = -> cryptoHash('md5')
-sha256 = -> cryptoHash('sha256')
-sha512 = -> cryptoHash('sha512')
-
-uri = (decode) ->
-  [editor, text, selected] = getText()
-
-  return unless editor and text
-
-  if decode
-    insertText(editor, decodeURIComponent(text), selected)
-  else
-    insertText(editor, encodeURIComponent(text), selected)
+    for sel in selections
+      sel.insertText(converter(sel.getText()), {"select": true})
 
 module.exports = StringEncoder =
   subscriptions: null
@@ -66,15 +37,15 @@ module.exports = StringEncoder =
     @subscriptions = new CompositeDisposable
 
     @subscriptions.add atom.commands.add 'atom-workspace',
-      'string-encoder:base64-decode': -> base64(true)
-      'string-encoder:base64-encode': -> base64()
-      'string-encoder:html-entities-decode': -> entities(true)
-      'string-encoder:html-entities-encode': -> entities()
-      'string-encoder:md5-encode': md5
-      'string-encoder:sha256-encode': sha256
-      'string-encoder:sha512-encode': sha512
-      'string-encoder:uri-decode': -> uri(true)
-      'string-encoder:uri-encode': -> uri()
+      'string-encoder:md5': -> transfrom(cryptoHash.MD5)
+      'string-encoder:sha256': -> transfrom(cryptoHash.SHA256)
+      'string-encoder:sha512': -> transfrom(cryptoHash.SHA512)
+      'string-encoder:base64-encode': -> transfrom(base64.encode)
+      'string-encoder:base64-decode': -> transfrom(base64.decode)
+      'string-encoder:html-entities-encode': -> transfrom(Entities.encode)
+      'string-encoder:html-entities-decode': -> transfrom(Entities.decode)
+      'string-encoder:uri-encode': -> transfrom(encodeURIComponent)
+      'string-encoder:uri-decode': -> transfrom(decodeURIComponent)
 
   deactivate: ->
     @subscriptions.dispose()
