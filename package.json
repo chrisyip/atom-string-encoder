@@ -1,7 +1,7 @@
 {
   "name": "string-encoder",
   "main": "./lib/string-encoder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Converts string from one encoding to another.",
   "keywords": [
     "base64",
