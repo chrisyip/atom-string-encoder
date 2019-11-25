@@ -14,7 +14,7 @@
     "entities"
   ],
   "activationCommands": [],
-  "repository": "git@github.com:chrisyip/atom-string-encoder.git",
+  "repository": "https://github.com/chrisyip/atom-string-encoder",
   "author": {
     "name": "Chris Yip",
     "email": "chris@yesui.co",
